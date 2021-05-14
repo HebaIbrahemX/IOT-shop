@@ -1,4 +1,4 @@
-package com.vodafone.iot;
+package com.vodafone.iot.application;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -93,7 +93,7 @@ public class DeviceDAO implements DAO {
         device.setCountryCode(1234);
         device.setSimId("5#23");
         device.setSimOperator(1);
-        device.setStatus(1);
+        device.setStatus(2);
         device.setDeviceTemperature(25);
         session.save(device);
         session.flush();

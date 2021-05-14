@@ -77,7 +77,7 @@ public class DeviceDAO implements DAO {
         session.beginTransaction();
         String queryClause="SELECT m FROM Device m WHERE m.status=:status";
         Query query= session.createQuery(queryClause,Device.class);
-        query.setParameter("status", DeviceStatus.WAITING_FOR_ACTIVATION);    
+        query.setParameter("status", DeviceStatus.READY);    
         return query.getResultList();
 
     }

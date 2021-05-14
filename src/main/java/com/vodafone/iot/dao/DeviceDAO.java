@@ -68,8 +68,10 @@ public class DeviceDAO implements DAO {
         session = factory.getCurrentSession(); 
         session.beginTransaction();
         Query query= session.createQuery("SELECT m FROM Device m WHERE m.status=:status",Device.class);
-        query.setParameter("status", DeviceStatus.WAITING_FOR_ACTIVATION);    
-        return query.getResultList();
+        query.setParameter("status", DeviceStatus.WAITING_FOR_ACTIVATION);  
+        List<Device> devices = query.getResultList();
+        session.getTransaction().commit();  
+        return devices;
     }
 
     public List<Device>getDevicesForSale(){
@@ -77,8 +79,11 @@ public class DeviceDAO implements DAO {
         session.beginTransaction();
         String queryClause="SELECT m FROM Device m WHERE m.status=:status";
         Query query= session.createQuery(queryClause,Device.class);
-        query.setParameter("status", DeviceStatus.READY);    
-        return query.getResultList();
+        query.setParameter("status", DeviceStatus.READY); 
+        List<Device> devices = query.getResultList();
+        session.getTransaction().commit();  
+        return devices;   
+        
 
     }
     //-----------------------------------------
@@ -101,6 +106,7 @@ public class DeviceDAO implements DAO {
     
     }
         else{
+            session.getTransaction().commit();
             System.out.println("=========No seeding needed");
         }
 

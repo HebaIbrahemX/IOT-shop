@@ -1,4 +1,5 @@
-# IOT-
+# IOT-Shop
+IOT-shop managment
 
 # Environment Prerequisite
 - Java 11 JDK installed

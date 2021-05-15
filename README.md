@@ -8,17 +8,25 @@
 
 # Installation Guide
 - open bash terminal in the desired directory to save the project
-- git clone https://github.com/HebaIbrahemX/IOT-shop.git
-- cd ./IOT-shop
-- run following 
+```bash 
+git clone https://github.com/HebaIbrahemX/IOT-shop.git
+
+cd ./IOT-shop
+```
+- then run following command to install dependecies needed
 ```bash 
 mvn clean install 
 ```
 - to run the project please execute the following command after replacing first "root" word  with mysql valid user and 2nd "root" word with this user password
--  mvn spring-boot:run -Dspring-boot.run.arguments="--db.user=root --db.pass=root"
+```bash 
+ mvn spring-boot:run -Dspring-boot.run.arguments="--db.user=root --db.pass=root"
+ ```
 - open browser and go to http://localhost:8080/swagger-ui/index.html  or import https://www.getpostman.com/collections/bd8fdecca7ca7ddec005 collection in postman to test endpoints
 
 # Unit and Integration tests
-- in the project directory run " mvn test "
+- in the project directory run 
+```bash 
+mvn test 
+```
 
 

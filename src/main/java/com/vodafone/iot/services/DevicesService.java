@@ -2,6 +2,9 @@ package com.vodafone.iot.services;
 
 import java.util.List;
 
+import javax.validation.ValidationException;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vodafone.iot.dao.DeviceDAO;
 import com.vodafone.iot.dto.DeviceDTO;
 import com.vodafone.iot.model.Device;
@@ -19,6 +22,7 @@ public class DevicesService {
 
     @Autowired
     GeneralValidation validation;
+    ObjectMapper mapper = new ObjectMapper();
 
     public  ResponseEntity<Object> updateDevice(DeviceDTO obj){
 
@@ -30,9 +34,17 @@ public class DevicesService {
             return new ResponseEntity<>(body.toString(),HttpStatus.NOT_FOUND);
 
         }else{
-           
-            body.put("data", updatedDevice);
+           try{
+            body.put("data", new JSONObject(updatedDevice));
+            body.put("message", "Success");
             return new ResponseEntity<>(body.toString(),HttpStatus.OK);
+        
+        }
+            catch(Exception ex){
+                throw new ValidationException(ex.getMessage());
+                
+            }   
+
         }
        
     

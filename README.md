@@ -21,6 +21,7 @@ mvn clean install
 ```bash 
  mvn spring-boot:run -Dspring-boot.run.arguments="--db.user=root --db.pass=root"
  ```
+ # Testing Endpoints
 - open browser and go to http://localhost:8080/swagger-ui/index.html  or import https://www.getpostman.com/collections/bd8fdecca7ca7ddec005 collection in postman to test endpoints
 
 # Unit and Integration tests
